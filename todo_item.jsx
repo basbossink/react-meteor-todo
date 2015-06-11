@@ -25,7 +25,8 @@ TodoItem = React.createClass({
             this.props.task.done ? "disabled" : "");
         var removeClasses = cx("middle aligned ui right floated icon remove \
             large", this.props.task.done ? "disabled" : "");
-
+        
+        var tags = this.props.task.tags ? this.props.task.tags.join(', ') : "";
         return (
             <div className={itemClasses}>
                 <div className={segmentClasses}>
@@ -37,6 +38,10 @@ TodoItem = React.createClass({
                         {this.props.task.text}
                     </span>
                     <i className={removeClasses} onClick={this.handleRemove}></i>
+                    <div>
+                    <span className="tagsHeader">Tags:&nbsp; </span>
+                      {tags}
+                    </div>
                 </div>
             </div>
         )

@@ -45,6 +45,7 @@ TodoApp = ReactMeteor.createClass({
             text: task.text,
             createdAt: new Date(),
             done: false,
+            tags: task.tags || [],
             important: task.important || false
         };
         Tasks.insert(newTask);
@@ -100,6 +101,7 @@ if (Meteor.isServer) {
                     text: "Task " + i,
                     createdAt: new Date(),
                     done: false,
+                    tags: [ "Fred", "Barney"],
                     important: (i % 2) === 1
                 });
             }
